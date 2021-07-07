@@ -31,7 +31,7 @@
 .pub/
 /build/
 
-lib/**.json
+*.json
 
 # Web related
 lib/generated_plugin_registrant.dart
