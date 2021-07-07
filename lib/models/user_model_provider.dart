@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
-class UserData {
+class UserDataModel {
   final String username;
   // final List<dynamic> propertyAllocated;
   final bool status;
@@ -11,7 +11,7 @@ class UserData {
   final String roomAllotted;
   final String city;
 
-  UserData({
+  UserDataModel({
     required this.username,
     // required this.propertyAllocated,
     required this.status,
@@ -23,13 +23,13 @@ class UserData {
 }
 
 class UserDataProvider with ChangeNotifier {
-  final List<UserData> _userList = [];
+  final List<UserDataModel> _userList = [];
 
-  List<UserData> get userList {
+  List<UserDataModel> get userList {
     return [..._userList];
   }
 
-  UserData getSingleUserData(String username) {
+  UserDataModel getSingleUserData(String username) {
     return userList.firstWhere((userData) => userData.username == username);
   }
 
@@ -44,19 +44,17 @@ class UserDataProvider with ChangeNotifier {
 
     for (int i = 0; i < decodedData["records"].length; i++) {
       _userList.add(
-        UserData(
-            username: decodedData["records"][i]["fields"]["Name"],
-            // propertyAllocated: decodedData["records"][i]["fields"]
-            //     ["Property Allotted"],
-            status:
-                decodedData["records"][i]["fields"]["Deposit Status"] == "Paid"
-                    ? true
-                    : false,
-            city: decodedData["records"][i]["fields"]["City"],
-            roomType: decodedData["records"][i]["fields"]["Room Type"],
-            depositeAmount: decodedData["records"][i]["fields"]
-                ["Deposit Amount"],
-            roomAllotted: decodedData["records"][i]["fields"]["Room Allotted"]),
+        UserDataModel(
+          username: decodedData["records"][i]["fields"]["Name"],
+          status:
+              decodedData["records"][i]["fields"]["Deposit Status"] == "Paid"
+                  ? true
+                  : false,
+          city: decodedData["records"][i]["fields"]["City"],
+          roomType: decodedData["records"][i]["fields"]["Room Type"],
+          depositeAmount: decodedData["records"][i]["fields"]["Deposit Amount"],
+          roomAllotted: decodedData["records"][i]["fields"]["Room Allotted"],
+        ),
       );
     }
     notifyListeners();

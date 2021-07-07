@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 // Third Party Import
-import 'package:provider/provider.dart';
-import 'package:todays/models/user_model_provider.dart';
-import 'package:todays/screens/home_screen.dart';
-import 'package:todays/screens/user_detail_screen.dart';
+import '../models/user_model_provider.dart';
+import 'screens/user_list_screen.dart';
+import '../screens/user_detail_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
             opacity: 20,
           ),
         ),
-        home: HomeScreen(),
+        home: UserListScreen(),
         routes: {
           UserDetailScreen.routeName: (ctx) => UserDetailScreen(),
         },
