@@ -15,8 +15,8 @@ class UserDetailScreen extends StatelessWidget {
     final double width = MediaQuery.of(context).size.width;
     final double height = MediaQuery.of(context).size.height;
     final username = ModalRoute.of(context)!.settings.arguments as String;
-    final userData =
-        Provider.of<UserDataProvider>(context).getSingleUserData(username);
+    final userData = 
+        Provider.of<UserDataProvider>(context,).getSingleUserData(username);
     AppBar appBar;
     return Scaffold(
       appBar: appBar = AppBar(

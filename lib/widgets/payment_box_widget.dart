@@ -31,7 +31,10 @@ class PaymentBoxWidget extends StatelessWidget {
             children: [
               Text(
                 "Payment:",
-                style: Theme.of(context).textTheme.headline1,
+                style: TextStyle(
+                    fontSize: width * 0.04,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
               ),
               Container(
                 padding: EdgeInsets.all(width * 0.002),
@@ -50,7 +53,10 @@ class PaymentBoxWidget extends StatelessWidget {
           Center(
             child: Text(
               userData.depositeAmount.toString(),
-              style: Theme.of(context).textTheme.bodyText1,
+              style: TextStyle(
+                  fontSize: height * 0.04,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
             ),
           ),
         ],

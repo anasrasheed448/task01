@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import '../models/user_model_provider.dart';
 
 class LocationWidget extends StatelessWidget {
@@ -15,16 +16,17 @@ class LocationWidget extends StatelessWidget {
     return Container(
       width: width * 0.3,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Icon(
-            Icons.location_city,
-          ),
+          const Icon(Icons.location_city),
           SizedBox(width: 0.01 * width),
           FittedBox(
             child: Text(
               userData.city,
-              style: Theme.of(context).textTheme.headline3,
+              style: TextStyle(
+                  fontSize: width < 270 ? width * 0.04 : width * 0.05,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
             ),
           ),
         ],

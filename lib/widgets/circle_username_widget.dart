@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import '../models/user_model_provider.dart';
 
@@ -16,21 +15,14 @@ class CircleUsernameWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-        width: width * 0.35,
-        height: height * 0.25,
-        decoration: const BoxDecoration(
-          color: Colors.green,
-          shape: BoxShape.circle,
-        ),
-        child: Center(
-          child: Text(
-            userData.username.substring(0, 1),
-            style: TextStyle(
-                fontSize: width * 0.20,
-                fontWeight: FontWeight.bold,
-                color: Colors.white30),
-          ),
+      child: CircleAvatar(
+        radius: height * 0.11,
+        child: Text(
+          userData.username.substring(0, 1),
+          style: TextStyle(
+              fontSize: height * 0.14,
+              fontWeight: FontWeight.bold,
+              color: Colors.white30),
         ),
       ),
     );

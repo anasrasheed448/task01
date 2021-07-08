@@ -34,6 +34,9 @@ class UserListScreen extends StatelessWidget {
                     itemBuilder: (ctx, i) => UserTile(
                       title: userData.userList[i].username,
                       status: userData.userList[i].status,
+                      propertyAllocated: 
+                        userData.userList[i].propertyAllocated[0].toString()
+                      
                     ),
                     itemCount: userData.userList.length,
                   ),
